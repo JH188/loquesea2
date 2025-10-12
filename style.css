@@ -1,0 +1,297 @@
+:root{
+  /* Naranja fiel al diseño */
+  --brand:      #f36f21; /* medio */
+  --brand-deep: #e86314; /* oscuro */
+  --brand-lite: #ff8a2b; /* claro */
+  --brand-grad: linear-gradient(180deg, var(--brand-lite) 0%, var(--brand) 45%, var(--brand-deep) 100%);
+
+  --white:#fff;
+  --text:#0a0a0a;
+  --muted:#777;
+  --pill-bg:#f0eeec;
+  --pill-text:#a44313;
+  --shadow:0 10px 24px rgba(24, 21, 21, 0.16);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: Inter, Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  color:var(--text);
+  background:#f8f8f8;
+}
+
+/* Utilidad */
+.container{width:min(1100px,92%);margin:auto}
+
+
+
+/* Franja con líneas y pills */
+.stripe-bar{
+  background:
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.08) 0 4px, rgba(255,255,255,0) 4px 10px),
+    var(--brand-grad);
+  padding: 16px 0 22px;
+  border-top: 1px solid rgba(255,255,255,.2);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.stripe-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+}
+.pill-group{display:flex;gap:.8rem;flex-wrap:wrap}
+.pill{
+  background:var(--pill-bg);
+  color:var(--pill-text);
+  padding:.55rem 1.05rem;
+  border-radius:999px;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow: inset 0 1px 0 #fff6, 0 3px 10px rgba(0,0,0,.08);
+  border:1px solid #ffd6b8;
+}
+.pill-cta{
+  background:#fff;
+  color:#f05c08;
+  border-color:#ffcfb0;
+}
+
+/* Tarjetas de contacto */
+.contact-cards{
+  background:var(--brand-grad);
+  padding: 8px 0 24px;
+}
+.cards-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.ccard{
+  position:relative;
+  background:rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 999px;
+  padding: 16px 22px 16px 66px;
+  color:#fff;
+  display:flex; align-items:center;
+  min-height:74px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35),
+              0 10px 18px rgba(0,0,0,.12);
+}
+.ccard-icon{
+  position:absolute; left:14px;
+  width:44px; height:44px;
+  border-radius:50%;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid rgba(255,255,255,.65);
+  display:grid; place-items:center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
+}
+.ccard-icon img{
+  width:100%; height:100%;
+  object-fit: cover;         /* llena el círculo con TU imagen */
+  border-radius:50%;
+}
+.ccard h3{
+  margin:0 0 4px 0; font-size:1.02rem; color:#fff
+}
+.ccard p{margin:0;opacity:.95}
+.ccard .mail{
+  color:#fff; text-decoration:none; border-bottom:1px dotted rgba(255,255,255,.7)
+}
+.ccard .mail:hover{opacity:.95}
+
+/* Panel blanco 3 columnas */
+.white-panel{
+  background: var(--brand-grad);
+  padding: 6px 0 36px;
+}
+.wp-grid{
+  position:relative;
+  background:#fff;
+  border-radius: 16px 16px 28px 28px;
+  box-shadow: var(--shadow);
+  padding: 22px 20px;
+  display:grid;
+  grid-template-columns: 1.1fr 1fr .9fr;
+  gap: 22px;
+  overflow:hidden;
+}
+/* “mordida” decorativa esquina superior derecha */
+.wp-grid::after{
+  content:"";
+  position:absolute;
+  top:0; right:0;
+  width:48px; height:48px;
+  background: linear-gradient(135deg, transparent 0 68%, #fff 68%);
+}
+
+.wp-col h4{margin:.2rem 0 1rem 0; font-size:1.05rem}
+.dot-list{list-style:none; padding:0; margin:0 0 1rem 0}
+.dot-list li{
+  margin:.42rem 0;
+  padding-left:14px;
+  position:relative;
+  color:#333131;
+}
+.dot-list li::before{
+  content:"";
+  position:absolute; left:0; top:.58em;
+  width:6px; height:6px; border-radius:50%;
+  background:linear-gradient(180deg,#ff7d2c,#ff5d00);
+}
+.wp-col a{color:#1c1d1f;text-decoration:none}
+.wp-col a:hover{text-decoration:underline}
+
+/* divisor vertical entre col1 y col2 */
+.divider{position:relative}
+.divider::before{
+  content:"";
+  position:absolute;
+  left:-12px; top:4px; bottom:4px;
+  width:1px;
+  background:linear-gradient(180deg,#eee,#ddd);
+}
+
+/* botón bordeado */
+.btn-outline{
+  display:inline-block;
+  border:2px solid #ee8550;
+  color: hsl(24, 90%, 49%);
+  font-weight:800;
+  padding:.55rem .9rem;
+  border-radius:12px;
+  text-decoration:none;
+  background:#fcfbfa;
+}
+
+/* Sociales con TUS imágenes en círculo */
+.socials{display:flex; gap:.55rem; flex-wrap:wrap}
+.sbtn{
+  width:40px; height:40px; border-radius:50%;
+  overflow:hidden; display:grid; place-items:center;
+  background:#fff;                     /* por si el PNG tiene transparencia */
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow: 0 6px 14px rgba(0,0,0,.15), inset 0 1px 0 rgba(255,255,255,.25);
+  transition: transform .15s, box-shadow .15s;
+}
+.sbtn img{
+  width:100%; height:100%;
+  object-fit: cover;                   /* llena el círculo */
+  border-radius:50%;
+}
+.sbtn:hover{ transform:translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,.18) }
+
+/* Franja legal */
+.legal{
+  background: linear-gradient(180deg, var(--brand) 0%, var(--brand-deep) 100%);
+  color:#fff;
+  padding: 10px 0 14px;
+}
+.legal-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+}
+.legal-links{display:flex; align-items:center; gap:.55rem; flex-wrap:wrap}
+.legal-links a{color:#fff; text-decoration:none; opacity:.95}
+.legal-links a:hover{opacity:1; text-decoration:underline}
+.copy{margin:0}
+
+/* Responsivo */
+@media (max-width:1000px){
+  .cards-grid{grid-template-columns:1fr}
+  .ccard{border-radius: 22px}
+  .wp-grid{grid-template-columns: 1.1fr 1fr .9fr .9fr;  /* 4 columnas */}
+  .divider::before{display:none}
+}
+/* Botón bordeado (más específico que .wp-col a) */
+a.btn-outline,
+a.btn-outline:visited{
+  color: hsl(24 90% 49%);   /* anaranjado claro */
+}
+
+a.btn-outline:hover{
+  color: hsl(24 95% 46%);   /* un poco más intenso al hover */
+  border-color: #ffae7a;
+  background: #fff2e8;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+
+
+/* ===== PACK MÓVIL / RESPONSIVE ===== */
+
+/* Base: que nada se desborde */
+img, svg, video { max-width: 100%; height: auto }
+.container { width: min(1100px, 92%); margin: auto }
+
+/* Mejorar targets táctiles */
+a, button { -webkit-tap-highlight-color: transparent }
+.sbtn, .chip-wsp, .btn-outline { min-height: 44px } /* recomendado por Apple */
+
+/* ===== Breakpoint 1200px: 4→2 columnas en el panel blanco ===== */
+@media (max-width:1200px){
+  .wp-grid{ grid-template-columns: 1fr 1fr; gap: 18px; padding: 18px }
+  .divider::before{ display:none }
+}
+
+/* ===== Breakpoint 900/1000px: cards apiladas, pads cómodos ===== */
+@media (max-width:1000px){
+  .cards-grid{ grid-template-columns: 1fr; gap: 12px }
+  .ccard{ border-radius: 18px; min-height: 64px; padding: 14px 18px 14px 64px }
+  .ccard-icon{ left: 12px; width: 40px; height: 40px }
+  .ccard h3{ font-size: 1rem }
+  .ccard .mail{ font-size: .95rem }
+  
+  .back-top{ top: 12px; padding: .6rem .9rem; font-size: .95rem }
+  .pill{ padding: .48rem .9rem; font-size: .95rem }
+  .stripe-bar{ padding: 12px 0 16px }
+}
+
+/* ===== Breakpoint 640px: 1 columna, todo centrado y legible ===== */
+@media (max-width:640px){
+  /* Panel blanco a 1 columna */
+  .wp-grid{ grid-template-columns: 1fr; gap: 14px; padding: 16px }
+  .wp-col h4{ margin: .1rem 0 .6rem 0; font-size: 1rem }
+  .dot-list li{ margin: .35rem 0; font-size: .98rem }
+
+  /* Botón “Contacta con un asesor” más táctil */
+  a.btn-outline{
+    display:inline-flex; align-items:center; justify-content:center;
+    width: 100%; padding: .65rem 1rem; font-size: 1rem;
+  }
+
+  /* Redes y métodos de pago: filas que se envuelven */
+  .socials{ gap: .5rem }
+  .sbtn{ width: 44px; height: 44px }           /* un poco más grande en móvil */
+  .safe-badge{ justify-content: flex-start }    /* usa center si lo quieres centrado */
+  .safe-badge img,
+  .mini-card--only-badge .safe-img{ width: 64px; height: 64px }
+
+  /* Tarjetas superiores */
+  .cards-grid{ gap: 10px }
+  .ccard{ padding: 12px 16px 12px 58px }
+
+  /* Franja naranja superior: pills apiladas */
+  .stripe-inner{ flex-direction: column; align-items: stretch }
+  .pill-group{ justify-content: center }
+  .pill-group.right .pill{ align-self:center }
+
+  /* Legal: en columna y centrado */
+  .legal-inner{ flex-direction: column; text-align: center; gap: .4rem }
+}
+
+/* ===== Breakpoint 420px: micro ajustes para pantallas chicas ===== */
+@media (max-width:420px){
+  .sbtn{ width: 40px; height: 40px }
+  .ccard{ border-radius: 16px; padding: 10px 14px 10px 54px }
+  .ccard-icon{ width: 36px; height: 36px; left: 10px }
+  .wp-grid{ padding: 14px }
+  .dot-list li{ font-size: .96rem }
+  .back-top{ font-size: .9rem; padding: .55rem .8rem }
+}
+
+/* (Opcional) Evitar que el ancla quede escondida debajo del sticky header en móviles */
+:target{ scroll-margin-top: 72px }
